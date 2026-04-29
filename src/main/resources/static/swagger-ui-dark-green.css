@@ -1,0 +1,56 @@
+:root {
+  --bg-color: #0b1220; /* dark navy */
+  --primary-color: #00c853; /* vivid green */
+  --muted-color: #9aa8b2;
+  --card-bg: #0f1a26;
+  --text-color: #e6f2ea;
+}
+
+body.swagger-ui {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+.swagger-ui .topbar {
+  background: linear-gradient(90deg, rgba(0,200,83,0.08), rgba(0,200,83,0.04));
+  border-bottom: 1px solid rgba(0,200,83,0.12);
+}
+
+.swagger-ui .info .title, .swagger-ui .info .base-url {
+  color: var(--primary-color) !important;
+}
+
+.swagger-ui .scheme-container, .swagger-ui .opblock {
+  background-color: var(--card-bg) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}
+
+.opblock-summary-method {
+  color: #ffffff !important;
+  background-color: rgba(0,200,83,0.14) !important;
+  border-radius: 4px !important;
+}
+
+.opblock-summary-path {
+  color: var(--text-color) !important;
+}
+
+.schemes, .servers-title {
+  color: var(--muted-color) !important;
+}
+
+.btn.authorize, .try-out__btn {
+  background-color: var(--primary-color) !important;
+  color: #04210a !important;
+  border: none !important;
+}
+
+.responses-table td, .responses-table th {
+  color: var(--text-color) !important;
+}
+
+/* Ensure code blocks remain readable */
+.microlight, pre, code {
+  background: #071018 !important;
+  color: #bfecc9 !important;
+}
