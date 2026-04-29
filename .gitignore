@@ -1,36 +1,30 @@
-HELP.md
+### Build & System ###
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+build/
+bin/
+*.class
+*.log
+.DS_Store
+Thumbs.db
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+### Secrets & Config (CRITICAL) ###
+src/main/resources/application.properties
+.env
+*.jks
+*.p12
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
+out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
 ### VS Code ###
 .vscode/
-application.propertiessrc/main/resources/application.properties
-target/
-.idea/
-*.class
-src/main/resources/application.properties
+*.code-workspace
+
+### Maven ###
+.mvn/
+mvnw
+mvnw.cmd
