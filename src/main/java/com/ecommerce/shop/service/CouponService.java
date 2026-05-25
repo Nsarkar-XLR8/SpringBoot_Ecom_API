@@ -2,7 +2,6 @@ package com.ecommerce.shop.service;
 
 import com.ecommerce.shop.dto.response.CouponResponse;
 import com.ecommerce.shop.entity.Cart;
-import com.ecommerce.shop.entity.CartItem;
 import com.ecommerce.shop.entity.Coupon;
 import com.ecommerce.shop.entity.User;
 import com.ecommerce.shop.exception.BusinessException;

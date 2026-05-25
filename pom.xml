@@ -171,6 +171,17 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Flyway Maven Plugin Configuration -->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>11.7.2</version> <!-- Ensure this matches your flyway-core version -->
+				<configuration>
+					<url>jdbc:postgresql://localhost:5432/ecommerce_db</url>
+					<user>ecommerce_user</user>
+					<password>ecommerce123</password>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

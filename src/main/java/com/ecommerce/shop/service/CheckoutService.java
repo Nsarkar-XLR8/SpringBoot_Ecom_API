@@ -218,11 +218,12 @@ public class CheckoutService {
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(form, headers);
         try {
-            ResponseEntity<Map> response = restTemplate.exchange(
+            @SuppressWarnings("unchecked")
+            ResponseEntity<Map<String, Object>> response = restTemplate.exchange(
                     "https://api.stripe.com/v1/checkout/sessions",
                     HttpMethod.POST,
                     request,
-                    Map.class
+                    (Class<Map<String, Object>>) (Class<?>) Map.class
             );
             if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
                 throw new BusinessException("Failed to create Stripe checkout session!");

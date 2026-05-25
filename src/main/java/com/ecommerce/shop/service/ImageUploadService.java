@@ -24,7 +24,8 @@ public class ImageUploadService {
         }
 
         try {
-            Map uploadResult = cloudinary.uploader().upload(file.getBytes(),
+            @SuppressWarnings("unchecked")
+            Map<String, Object> uploadResult = cloudinary.uploader().upload(file.getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             return (String) uploadResult.get("secure_url");
         } catch (IOException e) {

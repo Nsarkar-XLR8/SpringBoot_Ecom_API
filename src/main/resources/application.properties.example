@@ -1,0 +1,64 @@
+# ===================================================================
+# E-Commerce API — Application Configuration
+# ===================================================================
+# Copy this file to application.properties and fill in your values.
+# cp application.properties.example application.properties
+# ===================================================================
+
+spring.application.name=shop
+
+# Server
+server.port=8080
+server.tomcat.basedir=target/tomcat
+
+# PostgreSQL Database
+spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/ecommerce_db}
+spring.datasource.username=${DB_USERNAME:ecommerce_user}
+spring.datasource.password=${DB_PASSWORD:ecommerce123}
+
+# JPA & Hibernate
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.hibernate.ddl-auto=validate
+spring.sql.init.mode=never
+
+# Flyway
+spring.flyway.enabled=true
+spring.flyway.locations=classpath:db/migration
+spring.flyway.baseline-on-migrate=true
+
+# JWT Configuration
+app.jwt.secret=${APP_JWT_SECRET:CHANGE_ME_TO_A_SECURE_256_BIT_SECRET}
+app.jwt.expiration=${APP_JWT_EXPIRATION:86400000}
+
+# Cloudinary Configuration
+app.cloudinary.cloud-name=${CLOUDINARY_CLOUD_NAME:your_cloud_name}
+app.cloudinary.api-key=${CLOUDINARY_API_KEY:your_api_key}
+app.cloudinary.api-secret=${CLOUDINARY_API_SECRET:your_api_secret}
+
+# Stripe Configuration
+app.stripe.secret-key=${STRIPE_SECRET_KEY:sk_test_your_key}
+app.stripe.public-key=${STRIPE_PUBLIC_KEY:pk_test_your_key}
+app.stripe.webhook-secret=${STRIPE_WEBHOOK_SECRET:whsec_your_secret}
+app.stripe.checkout.default-success-url=${STRIPE_CHECKOUT_SUCCESS_URL:http://localhost:3000/checkout/success}
+app.stripe.checkout.default-cancel-url=${STRIPE_CHECKOUT_CANCEL_URL:http://localhost:3000/checkout/cancel}
+app.stripe.validation-interval-ms=${STRIPE_VALIDATION_INTERVAL_MS:5000}
+
+# Reliability / Rate limiting
+app.retry.stripe.max-attempts=${APP_RETRY_STRIPE_MAX_ATTEMPTS:3}
+app.retry.stripe.backoff-ms=${APP_RETRY_STRIPE_BACKOFF_MS:500}
+app.rate-limit.requests-per-minute=${APP_RATE_LIMIT_REQUESTS_PER_MINUTE:120}
+app.cors.allowed-origin-patterns=${APP_CORS_ALLOWED_ORIGIN_PATTERNS:http://localhost:*,https://*}
+
+# OpenAPI / Swagger
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.swagger-ui.operations-sorter=method
+springdoc.swagger-ui.tags-sorter=alpha
+springdoc.swagger-ui.tryItOutEnabled=true
+springdoc.swagger-ui.persistAuthorization=true
+springdoc.swagger-ui.customCssUrl=/swagger-ui-dark-green.css
+
+# Observability
+management.endpoints.web.exposure.include=health,info,metrics,prometheus
+management.endpoint.health.show-details=when_authorized

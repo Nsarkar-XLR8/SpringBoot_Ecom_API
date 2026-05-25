@@ -1,7 +1,6 @@
 package com.ecommerce.shop.service;
 
 import com.ecommerce.shop.dto.response.WishlistResponse;
-import com.ecommerce.shop.dto.response.ProductResponse;
 import com.ecommerce.shop.entity.Product;
 import com.ecommerce.shop.entity.User;
 import com.ecommerce.shop.entity.Wishlist;

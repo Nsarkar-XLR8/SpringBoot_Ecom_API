@@ -183,11 +183,12 @@ public class CheckoutPaymentProcessor {
         HttpEntity<Void> request = new HttpEntity<>(headers);
 
         try {
-            ResponseEntity<Map> response = restTemplate.exchange(
+            @SuppressWarnings("unchecked")
+            ResponseEntity<Map<String, Object>> response = restTemplate.exchange(
                     "https://api.stripe.com/v1/checkout/sessions/" + sessionId,
                     HttpMethod.GET,
                     request,
-                    Map.class
+                    (Class<Map<String, Object>>) (Class<?>) Map.class
             );
             if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
                 throw new BusinessException("Failed to fetch Stripe session!");
